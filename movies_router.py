@@ -58,7 +58,7 @@ def delete_movie_by_id(movie_id: Annotated[int, Path(gt=0)], db: Session = Depen
 
 
 #6. Пометить фильм как просмотренный или непросмотренный
-@movies_router.patch('/movies/{movie_id}/watch', response_model=MovieRead, status_code=200)
+@movies_router.patch('/movies/{movie_id}', response_model=MovieRead, status_code=200)
 def update_watch_status_movie_by_id(movie_id: Annotated[int, Path(gt=0)], watch_status: WatchStatusSet,
                        db: Session = Depends(get_db)):
     is_movie = crud.update_watch_status_movie_by_id(db, movie_id, watch_status)
@@ -68,7 +68,7 @@ def update_watch_status_movie_by_id(movie_id: Annotated[int, Path(gt=0)], watch_
 
 
 #7. Снять признак просмотра
-@movies_router.patch('/movies/{movie_id}/unwatch', response_model=MovieRead, status_code=200)
+@movies_router.patch('/movies/reset_watched/{movie_id}/', response_model=MovieRead, status_code=200)
 def reset_watch_status_movie_by_id(movie_id: Annotated[int, Path(gt=0)], db: Session = Depends(get_db)):
     is_movie = crud.reset_watch_status_movie_by_id(db, movie_id)
     if is_movie is None:
