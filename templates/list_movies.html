@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ваши фильмы</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    {% if movies %}
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% for movie in movies %}
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text"><strong>Жанр:</strong> {{ movie.genre }}</p>
+                <p class="card-text"><strong>Год:</strong> {{ movie.release_year }}</p>
+                {% if movie.is_watched %}
+                    <p class="text-success card-text"><i class="bi bi-check-circle"></i> Просмотрено</p>
+                {% else %}
+                    <p class="text-danger card-text"><i class="bi bi-x-circle"></i> Не просмотрено</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+    {% else %}
+    <div class="card-body">
+        <h5 class="card-title">Фильмы не найдены</h5>
+    </div>
+    {% endif %}
+    <a href="/request_parameters" class="btn btn-primary">Посмотреть список фильмов</a>
+    <a href="/" class="btn btn-primary">На главную</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

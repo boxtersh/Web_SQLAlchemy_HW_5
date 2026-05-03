@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог фильмов</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+    <body>
+    <div id="cont">
+        <label class="form-label">SKIP</label>
+        <input id="skip" class="inp" type="text" placeholder="Количество пропущенных от начала">
+        <label class="form-label">LIMIT</label>
+        <input id="limit" class="inp" type="text" placeholder="Лимит количества вывода фильмов">
+        <label for="yesNoSelect" class="form-label">Статус просмотра фильма:</label>
+        <select id="yesNoSelect" class="form-select"  name="yesNo">
+            <option value="" selected>Все фильмы</option>
+            <option value="1">Просмотрен</option>
+            <option value="0">Не просмотрен</option>
+        </select>
+        <button id="list_btn" type="button" class="btn btn-primary">Открыть каталог</button>
+        <br>
+        <a href="/" class="btn btn-primary">На главную</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="/static/parameters_script.js"></script>
+    </body>
+</html>
